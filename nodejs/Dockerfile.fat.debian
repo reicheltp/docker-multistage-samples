@@ -1,0 +1,20 @@
+# BASE IMAGE
+FROM node:8
+
+RUN yarn config set no-progress true
+
+WORKDIR /app
+
+COPY package.json .
+COPY yarn.lock .
+
+RUN yarn install
+
+COPY . .
+RUN yarn build
+
+ENV NODE_ENV=production
+ENV PORT=80
+EXPOSE 80
+
+CMD yarn start
