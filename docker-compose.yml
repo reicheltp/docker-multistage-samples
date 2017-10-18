@@ -1,0 +1,35 @@
+version: '3'
+services:
+  golang-multi-alpine:
+    build:
+      context: ./golang
+      dockerfile: Dockerfile
+  golang-multi-debian:
+    build:
+      context: ./golang
+      dockerfile: Dockerfile.debian
+  golang-fat-alpine:
+    build:
+      context: ./golang
+      dockerfile: Dockerfile.fat
+  golang-fat-debian:
+    build:
+      context: ./golang
+      dockerfile: Dockerfile.fat.debian
+
+  nodejs-multi-alpine:
+    build:
+      context: ./nodejs
+      dockerfile: Dockerfile
+  nodejs-multi-debian:
+    build:
+      context: ./nodejs
+      dockerfile: Dockerfile.debian
+  nodejs-fat-alpine:
+    build:
+      context: ./nodejs
+      dockerfile: Dockerfile.fat
+  nodejs-fat-debian:
+    build:
+      context: ./nodejs
+      dockerfile: Dockerfile.fat.debian
