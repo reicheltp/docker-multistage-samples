@@ -1,0 +1,12 @@
+FROM golang
+
+WORKDIR /go/src/app
+COPY /src .
+
+RUN go-wrapper download
+RUN go-wrapper install
+
+ENV GIN_MODE=release
+ENV PORT=80
+
+CMD ["go-wrapper", "run"]

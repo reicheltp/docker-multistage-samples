@@ -1,0 +1,18 @@
+# BUILD STAGE
+FROM golang AS build
+
+WORKDIR /go/src/app
+COPY ./src .
+
+RUN go-wrapper download
+RUN go-wrapper install
+
+# FINAL STAGE
+FROM debian
+
+COPY --from=build /go/bin/app /bin/app
+
+ENV GIN_MODE=release
+ENV PORT=80
+
+CMD ["app"]

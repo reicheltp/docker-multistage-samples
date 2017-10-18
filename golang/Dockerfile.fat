@@ -1,0 +1,16 @@
+FROM golang:alpine
+
+# git is required for go get
+RUN apk --no-cache upgrade && \
+    apk --no-cache add git
+
+WORKDIR /go/src/app
+COPY /src .
+
+RUN go-wrapper download
+RUN go-wrapper install
+
+ENV GIN_MODE=release
+ENV PORT=80
+
+CMD ["go-wrapper", "run"]
