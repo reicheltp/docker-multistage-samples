@@ -1,4 +1,3 @@
-# BASE IMAGE
 FROM node:8-alpine
 
 RUN yarn config set no-progress true

@@ -4,7 +4,7 @@ FROM maven AS build
 WORKDIR /app
 COPY . .
 
-RUN mvn clean install
+RUN mvn install
 
 ## FINAL STAGE
 FROM openjdk:jre
