@@ -33,3 +33,20 @@ services:
     build:
       context: ./nodejs
       dockerfile: Dockerfile.fat.debian
+
+  java-vertx-multi-alpine:
+    build:
+      context: ./java-vertx
+      dockerfile: Dockerfile
+  java-vertx-multi-debian:
+    build:
+      context: ./java-vertx
+      dockerfile: Dockerfile.debian
+  java-vertx-fat-alpine:
+    build:
+      context: ./java-vertx
+      dockerfile: Dockerfile.fat
+  java-vertx-fat-debian:
+    build:
+      context: ./java-vertx
+      dockerfile: Dockerfile.fat.debian

@@ -1,0 +1,12 @@
+## BUILD STAGE
+FROM maven AS build
+
+WORKDIR /app
+COPY . .
+
+RUN mvn clean install
+
+ENV PORT=80
+
+ENTRYPOINT ["sh", "-c"]
+CMD ["exec java -jar target/*-fat.jar"]
